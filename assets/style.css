@@ -414,3 +414,65 @@ td {
         flex-direction: column;
     }
 }
+
+.transactions-card {
+    max-width: 860px;
+    margin: 26px auto 0;
+}
+
+.section-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 12px;
+}
+
+.transaction-table-wrap {
+    margin-top: 22px;
+    border: 1px solid rgba(113, 128, 165, 0.16);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.72);
+}
+
+.transaction-table {
+    min-width: 680px;
+}
+
+.transaction-table tr:last-child td {
+    border-bottom: 0;
+}
+
+.transaction-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+}
+
+.transaction-badge.in {
+    color: var(--success);
+    background: rgba(8, 127, 91, 0.12);
+}
+
+.transaction-badge.out {
+    color: var(--danger);
+    background: rgba(217, 41, 88, 0.12);
+}
+
+.amount {
+    white-space: nowrap;
+    font-weight: 900;
+}
+
+.amount.in {
+    color: var(--success);
+}
+
+.amount.out {
+    color: var(--danger);
+}

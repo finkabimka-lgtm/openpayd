@@ -37,6 +37,10 @@ if (!$pdo instanceof PDO) {
 }
 
 try {
+    $initialBalance = round((float) $balance, 2);
+
+    $pdo->beginTransaction();
+
     $stmt = $pdo->prepare(
         'INSERT INTO users (first_name, last_name, email, password, balance, role)
          VALUES (:first_name, :last_name, :email, :password, :balance, :role)'
@@ -47,12 +51,33 @@ try {
         'last_name' => $lastName,
         'email' => $email,
         'password' => password_hash($password, PASSWORD_DEFAULT),
-        'balance' => (float) $balance,
+        'balance' => $initialBalance,
         'role' => 'client',
     ]);
 
+    $userId = (int) $pdo->lastInsertId();
+
+    if ($initialBalance > 0) {
+        $transactionStmt = $pdo->prepare(
+            'INSERT INTO transactions (user_id, type, description, amount)
+             VALUES (:user_id, :type, :description, :amount)'
+        );
+
+        $transactionStmt->execute([
+            'user_id' => $userId,
+            'type' => 'IN',
+            'description' => 'Initial deposit',
+            'amount' => $initialBalance,
+        ]);
+    }
+
+    $pdo->commit();
+
     $_SESSION['admin_success'] = 'Cliente creato con successo.';
 } catch (Throwable $exception) {
+    if ($pdo->inTransaction()) {
+        $pdo->rollBack();
+    }
     if ($exception->getCode() === '23000') {
         $_SESSION['admin_error'] = 'Esiste già un utente con questa email.';
     } else {
