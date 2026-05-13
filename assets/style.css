@@ -60,15 +60,31 @@ body::before {
 .brand-inline {
     display: flex;
     align-items: center;
-    gap: 14px;
     color: var(--white);
     text-decoration: none;
     font-weight: 800;
 }
 
-.brand-name {
-    font-size: clamp(2.1rem, 5vw, 3.2rem);
-    letter-spacing: -0.05em;
+.brand-block {
+    justify-content: center;
+    width: min(100%, 520px);
+}
+
+.brand-logo {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 16px 34px rgba(2, 11, 47, 0.22));
+}
+
+.brand-logo-large {
+    max-width: clamp(260px, 42vw, 500px);
+}
+
+.brand-logo-nav {
+    width: clamp(150px, 18vw, 220px);
+    max-height: 62px;
 }
 
 .brand-mark {
@@ -386,21 +402,13 @@ td {
 }
 
 @media (max-width: 520px) {
-    .brand-block {
-        gap: 10px;
+    .brand-logo-large {
+        max-width: min(78vw, 340px);
     }
 
-    .brand-mark {
-        width: 56px;
-        height: 56px;
-        border-width: 6px;
-        font-size: 1.8rem;
-    }
-
-    .brand-mark::after {
-        left: 20px;
-        width: 16px;
-        height: 28px;
+    .brand-logo-nav {
+        width: min(58vw, 180px);
+        max-height: 50px;
     }
 
     .login-card,

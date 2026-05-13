@@ -32,14 +32,15 @@ if (!$pdo instanceof PDO) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OpenPayd - Admin</title>
+    <link rel="icon" type="image/png" href="../openpayd-icon.png">
+    <link rel="apple-touch-icon" href="../openpayd-icon.png">
     <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body class="app-page">
     <main class="dashboard-shell wide">
         <nav class="topbar">
-            <a class="brand-inline" href="admin.php">
-                <span class="brand-mark small">P</span>
-                <span>OpenPayd</span>
+            <a class="brand-inline" href="admin.php" aria-label="OpenPayd admin">
+                <img class="brand-logo brand-logo-nav" src="../openpaydlogo.png" alt="OpenPayd">
             </a>
             <a href="../auth/logout.php" class="logout-link">Logout</a>
         </nav>
