@@ -40,7 +40,7 @@ if (!$pdo instanceof PDO) {
     <main class="dashboard-shell wide">
         <nav class="topbar">
             <a class="brand-inline" href="admin.php" aria-label="OpenPayd admin">
-                <img class="brand-logo brand-logo-nav" src="../openpaydlogo.png" alt="OpenPayd">
+                <img class="brand-logo brand-logo-nav" src="../openpaydlogo.svg" alt="OpenPayd">
             </a>
             <a href="../auth/logout.php" class="logout-link">Logout</a>
         </nav>

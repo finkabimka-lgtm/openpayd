@@ -55,7 +55,7 @@ if (!$pageError && !$user) {
     <main class="dashboard-shell">
         <nav class="topbar">
             <a class="brand-inline" href="home.php" aria-label="OpenPayd home">
-                <img class="brand-logo brand-logo-nav" src="../openpaydlogo.png" alt="OpenPayd">
+                <img class="brand-logo brand-logo-nav" src="../openpaydlogo.svg" alt="OpenPayd">
             </a>
             <a href="../auth/logout.php" class="logout-link">Logout</a>
         </nav>
