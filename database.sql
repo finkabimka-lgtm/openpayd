@@ -1,11 +1,8 @@
--- Database OpenPayd Bank
--- Importare questo file in MySQL/phpMyAdmin prima di usare l'applicazione.
+-- Tabelle OpenPayd Bank per database esistente ikqftkmf_wp333
+-- Importare questo file nel database MySQL ikqftkmf_wp333.
+-- Nota: questo script NON crea un nuovo database, usa quello già disponibile.
 
-CREATE DATABASE IF NOT EXISTS openpayd_bank
-    CHARACTER SET utf8mb4
-    COLLATE utf8mb4_unicode_ci;
-
-USE openpayd_bank;
+USE ikqftkmf_wp333;
 
 DROP TABLE IF EXISTS users;
 

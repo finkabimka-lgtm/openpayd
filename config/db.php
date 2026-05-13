@@ -4,9 +4,9 @@
  *
  * Configurazione pensata per XAMPP/Laragon/MAMP:
  * - Host: localhost
- * - Database: openpayd_bank
- * - Utente: root
- * - Password: vuota (modificare se il proprio ambiente usa credenziali diverse)
+ * - Database: ikqftkmf_wp333
+ * - Utente: ikqftkmf_wp333
+ * - Password: b<W$Tp{CMq
  */
 
 if (session_status() === PHP_SESSION_NONE) {
@@ -14,9 +14,9 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 $host = 'localhost';
-$dbname = 'openpayd_bank';
-$username = 'root';
-$password = '';
+$dbname = 'ikqftkmf_wp333';
+$username = 'ikqftkmf_wp333';
+$password = 'b<W$Tp{CMq';
 
 try {
     $pdo = new PDO(
