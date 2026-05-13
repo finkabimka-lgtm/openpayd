@@ -1,14 +1,30 @@
 <?php
-require_once __DIR__ . '/../config/db.php';
+
+declare(strict_types=1);
+
+/** @var ?PDO $pdo */
+$pdo = require __DIR__ . '/../config/db.php';
 requireRole('admin');
 
 $success = $_SESSION['admin_success'] ?? '';
 $error = $_SESSION['admin_error'] ?? '';
 unset($_SESSION['admin_success'], $_SESSION['admin_error']);
 
-$stmt = $pdo->prepare('SELECT first_name, last_name, email, balance FROM users WHERE role = :role ORDER BY id DESC');
-$stmt->execute(['role' => 'client']);
-$clients = $stmt->fetchAll();
+$clients = [];
+$dbError = '';
+
+if (!$pdo instanceof PDO) {
+    $dbError = 'Database temporaneamente non disponibile. Riprova più tardi.';
+} else {
+    try {
+        $stmt = $pdo->prepare('SELECT first_name, last_name, email, balance FROM users WHERE role = :role ORDER BY id DESC');
+        $stmt->execute(['role' => 'client']);
+        $clients = $stmt->fetchAll();
+    } catch (Throwable $exception) {
+        error_log('Admin client list query failed: ' . $exception->getMessage());
+        $dbError = 'Impossibile caricare la lista clienti in questo momento.';
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -40,6 +56,10 @@ $clients = $stmt->fetchAll();
 
                 <?php if ($error): ?>
                     <div class="alert error"><?= e($error); ?></div>
+                <?php endif; ?>
+
+                <?php if ($dbError): ?>
+                    <div class="alert error"><?= e($dbError); ?></div>
                 <?php endif; ?>
 
                 <form action="create_user.php" method="POST" class="form-stack admin-form">

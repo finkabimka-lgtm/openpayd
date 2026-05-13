@@ -1,15 +1,16 @@
 <?php
+
+declare(strict_types=1);
+
 require_once __DIR__ . '/config/db.php';
 
 if (!empty($_SESSION['user_id'])) {
     if (($_SESSION['role'] ?? '') === 'admin') {
-        header('Location: admin/admin.php');
-        exit;
+        redirect('admin/admin.php');
     }
 
     if (($_SESSION['role'] ?? '') === 'client') {
-        header('Location: client/home.php');
-        exit;
+        redirect('client/home.php');
     }
 }
 
