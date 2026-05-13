@@ -30,7 +30,7 @@ unset($_SESSION['login_error']);
 <body class="auth-page">
     <main class="auth-shell">
         <section class="brand-block" aria-label="OpenPayd">
-            <img class="brand-logo brand-logo-large" src="openpaydlogo.png" alt="OpenPayd">
+            <img class="brand-logo brand-logo-large" src="openpaydlogo.svg" alt="OpenPayd">
         </section>
 
         <section class="login-card">
