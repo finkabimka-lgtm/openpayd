@@ -3,7 +3,7 @@
  * Connessione database e funzioni comuni dell'app OpenPayd.
  *
  * Configurazione pensata per XAMPP/Laragon/MAMP:
- * - Host: localhost
+ * - Host: 192.142.10.5
  * - Database: ikqftkmf_wp333
  * - Utente: ikqftkmf_wp333
  * - Password: b<W$Tp{CMq
@@ -13,7 +13,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-$host = 'localhost';
+$host = '192.142.10.5';
 $dbname = 'ikqftkmf_wp333';
 $username = 'ikqftkmf_wp333';
 $password = 'b<W$Tp{CMq';
