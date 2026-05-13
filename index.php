@@ -23,13 +23,14 @@ unset($_SESSION['login_error']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OpenPayd - Sign in</title>
+    <link rel="icon" type="image/png" href="openpayd-icon.png">
+    <link rel="apple-touch-icon" href="openpayd-icon.png">
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body class="auth-page">
     <main class="auth-shell">
         <section class="brand-block" aria-label="OpenPayd">
-            <div class="brand-mark">P</div>
-            <span class="brand-name">OpenPayd</span>
+            <img class="brand-logo brand-logo-large" src="openpaydlogo.png" alt="OpenPayd">
         </section>
 
         <section class="login-card">
